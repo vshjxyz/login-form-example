@@ -1,4 +1,5 @@
 @import "../../../node_modules/compass-mixins/lib/compass";
+@import "../../styles/settings";
 
 .login-wrapper {
   height: 100%;
@@ -6,7 +7,7 @@
   @include flex-direction(row);
   @include justify-content(center);
   .login-modal {
-    width: 400px;
+    width: $login-width;
     @include align-self(center);
     h1 {
       font-size: 30px;
