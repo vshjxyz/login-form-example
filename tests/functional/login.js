@@ -73,7 +73,7 @@ describe('Login form', () => {
         client.expect.element('.login-form').to.be.present;
     });
 
-    it.only('should fail to login the user if the password is "password"', (client) => {
+    it('should fail to login the user if the password is "password"', (client) => {
         client
             .url('http://localhost:8080')
             .waitForElementVisible('body', 1000)
@@ -85,5 +85,17 @@ describe('Login form', () => {
 
         client.expect.element('.error-form').to.be.present;
         client.expect.element('.error-form').to.be.visible;
+    });
+
+    it('should show the login success if a valid form is submitted', (client) => {
+        client
+            .url('http://localhost:8080')
+            .waitForElementVisible('body', 1000)
+            .setValue('input[name="email"]', 'some_email@gmail.com')
+            .setValue('input[name="password"]', 'valid password')
+            .click('button[name="login-submit"]')
+            .waitForElementVisible('.login-message', 1000);
+
+        client.expect.element('.login-message h2').text.to.equal('You are now logged in.').after(2000);
     });
 });

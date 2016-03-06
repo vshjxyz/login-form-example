@@ -8,7 +8,7 @@ const LoginMessage = ({ content }) => {
     return (
         <div className="login-message">
             <div className="message-wrapper">
-                <h2>{content}</h2>
+                <h2 className="message-content">{content}</h2>
             </div>
         </div>
     );
