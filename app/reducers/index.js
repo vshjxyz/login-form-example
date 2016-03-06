@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import counter from './counter';
+import loginForm from './login-form';
 
 export default combineReducers({
-    counter
+    loginForm
 });

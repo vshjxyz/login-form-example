@@ -2,7 +2,10 @@ import keyMirror from 'keymirror';
 
 export default {
     ActionTypes: keyMirror({
-        COUNTER_ADD: null
+        LOGIN_VALIDATE: null,
+        LOGIN_VALIDATE_FIELD: null,
+        LOGIN_SUBMIT: null,
+        LOGIN_CHANGE: null
     }),
     RouteErrors: keyMirror({
         ROUTING: null,

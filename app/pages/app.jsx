@@ -4,7 +4,6 @@ import React from 'react';
 import { Link, RouteHandler } from 'react-router';
 import { Provider } from 'react-redux';
 import configureStore from '../shared/store';
-import CounterActions from '../actions/counter-actions';
 
 if (process.env.BROWSER) {
     require('../styles/app.scss');

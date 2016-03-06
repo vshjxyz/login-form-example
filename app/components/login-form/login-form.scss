@@ -1,3 +1,4 @@
+@import "../../../node_modules/compass-mixins/lib/compass";
 @import "../../styles/settings";
 
 .login-form {
@@ -9,12 +10,34 @@
     width: 100%;
   }
 
+  .form-group {
+    margin: 5px 0 20px;
+
+    &.error {
+      label {
+        color: #F22613;
+      }
+
+      input {
+        border: 1px solid #F22613;
+        &:focus {
+          border-color: #F22613;
+        }
+      }
+
+      .error-message {
+        height: initial;
+        padding: 5px;
+      }
+    }
+  }
+
   input {
     border: 1px solid #22313F;
     padding: $input-padding;
-    margin: 5px 0 20px;
     outline: none;
     font-size: 16px;
+    transition: all 200ms linear;
     &:focus {
       border-color: #2ECC71;
     }
@@ -28,9 +51,21 @@
     display: block;
     margin: 0 0 0 auto;
     cursor: pointer;
-    &:hover {
+    @include box-shadow(#2ECC71 3px 3px 0, #4DAF7C 6px 6px 0);
+    transition: all 100ms linear;
+    &:hover, &:focus {
       color: #F2F1EF;
       background: #2ECC71;
+      @include box-shadow(none);
     }
+  }
+
+  .error-message {
+    height: 0;
+    display: block;
+    color: #F2F1EF;
+    background: #F22613;
+    overflow: hidden;
+    transition: all 100ms linear;
   }
 }
