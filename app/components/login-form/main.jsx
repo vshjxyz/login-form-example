@@ -37,6 +37,12 @@ const Login = React.createClass({
 
     render() {
         const fields = this.props.form.fields;
+        let formError;
+
+        if (this.props.form.error) {
+            formError = <span className="error-message form">{this.props.form.error}</span>
+        }
+
         return (
             <form className="login-form">
                 <div className={fields.email.error ? 'form-group error': 'form-group'}>
@@ -60,6 +66,7 @@ const Login = React.createClass({
                 </div>
 
                 <button type="button" onClick={ this.submit }>Login</button>
+                {formError}
             </form>
         );
     }

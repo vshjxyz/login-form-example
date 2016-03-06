@@ -25,8 +25,7 @@
       }
 
       .error-message {
-        height: initial;
-        padding: 5px;
+        @include visible-error-message();
       }
     }
   }
@@ -66,5 +65,10 @@
     background: $red-1;
     overflow: hidden;
     transition: all 100ms linear;
+
+    &.form {
+      margin-top: 15px;
+      @include visible-error-message();
+    }
   }
 }

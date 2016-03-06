@@ -3,3 +3,8 @@
   background: #F2F1EF;
   padding: 20px;
 }
+
+@mixin visible-error-message() {
+  height: initial;
+  padding: 5px;
+}

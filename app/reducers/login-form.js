@@ -67,13 +67,13 @@ export default function loginForm(state = initialState, action) {
             };
         case ActionTypes.LOGIN_ERROR:
             return {
-                ...state,
+                ...initialState,
                 isSubmitting: false,
                 error: action.error
             };
         case ActionTypes.LOGIN_OK:
             return {
-                ...state,
+                ...initialState,
                 isSubmitting: false,
                 isSubmitted: true
             };
