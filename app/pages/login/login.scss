@@ -1,0 +1,16 @@
+@import "../../../node_modules/compass-mixins/lib/compass";
+
+.login-wrapper {
+  height: 100%;
+  @include display-flex;
+  @include flex-direction(row);
+  @include justify-content(center);
+  .login-modal {
+    width: 400px;
+    @include align-self(center);
+    h1 {
+      font-size: 30px;
+      font-weight: 300;
+    }
+  }
+}
