@@ -1,0 +1,9 @@
+@import "../../../node_modules/compass-mixins/lib/compass";
+@import "../../styles/settings";
+@import "../../styles/mixins";
+
+.login-message {
+  @include modal();
+  min-height: 200px;
+  text-align: center;
+}

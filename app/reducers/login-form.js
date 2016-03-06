@@ -15,7 +15,10 @@ const initialState = deepFreeze({
             isTouched: false
         }
     },
-    isValid: false
+    isValid: false,
+    isSubmitting: false,
+    isSubmitted: false,
+    error: null
 });
 
 export default function loginForm(state = initialState, action) {
@@ -56,6 +59,23 @@ export default function loginForm(state = initialState, action) {
                     ...newFields
                 },
                 isValid
+            };
+        case ActionTypes.LOGIN_SUBMIT:
+            return {
+                ...state,
+                isSubmitting: true
+            };
+        case ActionTypes.LOGIN_ERROR:
+            return {
+                ...state,
+                isSubmitting: false,
+                error: action.error
+            };
+        case ActionTypes.LOGIN_OK:
+            return {
+                ...state,
+                isSubmitting: false,
+                isSubmitted: true
             };
         default:
             return state;

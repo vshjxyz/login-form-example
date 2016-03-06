@@ -24,5 +24,28 @@ export default {
             type: ActionTypes.LOGIN_VALIDATE,
             errors
         };
+    },
+
+    submit() {
+        return (dispatch, getState) => {
+            dispatch({
+                type: ActionTypes.LOGIN_SUBMIT
+            });
+
+            // Mocking ajax call to server
+            setTimeout(() => {
+                    if (getState().loginForm.fields.password.value === 'password') {
+                        dispatch({
+                            type: ActionTypes.LOGIN_ERROR,
+                            error: 'Invalid login'
+                        })
+                    } else {
+                        dispatch({
+                            type: ActionTypes.LOGIN_OK
+                        });
+                    }
+                }
+            , 2000);
+        }
     }
 };
