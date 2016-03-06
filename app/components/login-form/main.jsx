@@ -30,13 +30,15 @@ const Login = React.createClass({
     },
 
     submit() {
-        console.log('submit');
+        if (this.props.form.isValid) {
+            console.log('submit');
+        }
     },
 
     render() {
         const fields = this.props.form.fields;
         return (
-            <form className="login-form" onSubmit={ this.submit }>
+            <form className="login-form">
                 <div className={fields.email.error ? 'form-group error': 'form-group'}>
                     <label htmlFor="email">Email</label>
                     <input
@@ -57,7 +59,7 @@ const Login = React.createClass({
                     <span className="error-message">{fields.password.error}</span>
                 </div>
 
-                <button type="button">Login</button>
+                <button type="button" onClick={ this.submit }>Login</button>
             </form>
         );
     }

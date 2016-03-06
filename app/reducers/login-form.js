@@ -14,7 +14,8 @@ const initialState = deepFreeze({
             error: null,
             isTouched: false
         }
-    }
+    },
+    isValid: false
 });
 
 export default function loginForm(state = initialState, action) {
@@ -32,22 +33,29 @@ export default function loginForm(state = initialState, action) {
                 }
             };
         case ActionTypes.LOGIN_VALIDATE:
+            let isValid = true;
             const newFields = Object.keys(state.fields)
                 .map((fieldName) => {
-                    console.log('newState.fields[fieldName]', state.fields[fieldName]);
+                    const error = action.errors[fieldName] ? action.errors[fieldName] : null;
+
+                    // Tagging the form as invalid if error is not null
+                    isValid = isValid && !error;
+
                     return {
                         [fieldName]: {
                             ...state.fields[fieldName],
-                            error: action.errors[fieldName] ? action.errors[fieldName] : null
+                            error
                         }
                     };
                 })
                 .reduce((acc, val) => Object.assign(acc, val), {});
+
             return {
                 ...state,
                 fields: {
                     ...newFields
-                }
+                },
+                isValid
             };
         default:
             return state;
