@@ -40,7 +40,7 @@ const Login = React.createClass({
         let formError;
 
         if (this.props.form.error) {
-            formError = <span className="error-message form">{this.props.form.error}</span>
+            formError = <span className="error-message error-form">{this.props.form.error}</span>
         }
 
         return (
@@ -52,7 +52,7 @@ const Login = React.createClass({
                         name="email"
                         onChange={this.onChange}
                         onBlur={this.onBlur} />
-                    <span className="error-message">{fields.email.error}</span>
+                    <span className="error-message error-email">{fields.email.error}</span>
                 </div>
 
                 <div className={fields.password.error ? 'form-group error': 'form-group'}>
@@ -62,10 +62,10 @@ const Login = React.createClass({
                         name="password"
                         onChange={this.onChange}
                         onBlur={this.onBlur} />
-                    <span className="error-message">{fields.password.error}</span>
+                    <span className="error-message error-password">{fields.password.error}</span>
                 </div>
 
-                <button type="button" onClick={ this.submit }>Login</button>
+                <button type="button" name="login-submit" onClick={ this.submit }>Login</button>
                 {formError}
             </form>
         );

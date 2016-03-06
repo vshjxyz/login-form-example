@@ -7,7 +7,7 @@
     "build": "rm -rf dist/* && ./node_modules/.bin/webpack --progress --stats --config ./webpack/prod.config.js",
     "dev": "NODE_ENV=development node ./webpack/dev-server.js",
     "start": "NODE_PATH=$NODE_PATH:./app node ./server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/nightwatch"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "handlebars": "^4.0.5",
     "http-proxy": "^1.13.1",
     "keymirror": "^0.1.1",
+    "nightwatch": "^0.8.16",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",

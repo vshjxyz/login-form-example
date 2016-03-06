@@ -66,7 +66,7 @@
     overflow: hidden;
     transition: all 100ms linear;
 
-    &.form {
+    &.error-form {
       margin-top: 15px;
       @include visible-error-message();
     }
