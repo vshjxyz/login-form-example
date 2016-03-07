@@ -98,4 +98,46 @@ describe('Login form', () => {
 
         client.expect.element('.login-message h2').text.to.equal('You are now logged in.').after(2000);
     });
+
+    it('should check for a valid email', (client) => {
+        client
+            .url('http://localhost:8080')
+            .waitForElementVisible('body', 1000);
+
+        client
+            .setValue('input[name="email"]', 'asd')
+            .setValue('input[name="password"]', 'valid password')
+            .click('button[name="login-submit"]');
+
+        client.expect.element('.login-form').to.be.present;
+        client.expect.element('.error-email').to.be.visible;
+
+        client
+            .setValue('input[name="email"]', 'valid@email.com')
+            .click('button[name="login-submit"]');
+
+        client.expect.element('.login-form').not.to.be.present;
+    });
+
+    it('should submit the form when a user press enter on an input box', (client) => {
+        client
+            .url('http://localhost:8080')
+            .waitForElementVisible('body', 1000);
+
+        client
+            .setValue('input[name="email"]', 'asd')
+            .setValue('input[name="password"]', 'valid password')
+            .click('input[name="email"]')
+            .keys(client.Keys.ENTER);
+
+        client.expect.element('.login-form').to.be.present;
+        client.expect.element('.error-email').to.be.visible;
+
+        client
+            .setValue('input[name="email"]', 'valid@email.com')
+            .click('input[name="email"]')
+            .keys(client.Keys.ENTER);
+
+        client.expect.element('.login-form').not.to.be.present;
+    })
 });

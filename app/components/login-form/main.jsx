@@ -15,17 +15,27 @@ const Login = React.createClass({
         'password'
     ],
 
+    onKeyPress(event) {
+        if (event.key === 'Enter') {
+            this.submit();
+        }
+    },
+
     onChange(event) {
         const changedField = event.target.name;
         const changedFieldValue = event.target.value;
         const mappedField = this.props.form.fields[changedField];
         if (mappedField && mappedField.isTouched) {
-            // TODO: fire validation
+            this.validate();
         }
         this.props.fieldChange(changedField, changedFieldValue);
     },
 
     onBlur() {
+        this.validate();
+    },
+
+    validate() {
         this.props.validate(this.props.form.fields);
     },
 
@@ -38,8 +48,8 @@ const Login = React.createClass({
     render() {
         const fields = this.props.form.fields;
         const isValid = this.props.form.isValid;
-        let formError;
 
+        let formError;
         if (this.props.form.error) {
             formError = <span className="error-message error-form">{this.props.form.error}</span>
         }
@@ -51,6 +61,7 @@ const Login = React.createClass({
                     <input
                         type="text"
                         name="email"
+                        onKeyPress={this.onKeyPress}
                         onChange={this.onChange}
                         onBlur={this.onBlur} />
                     <span className="error-message error-email">{fields.email.error}</span>
@@ -61,6 +72,7 @@ const Login = React.createClass({
                     <input
                         type="password"
                         name="password"
+                        onKeyPress={this.onKeyPress}
                         onChange={this.onChange}
                         onBlur={this.onBlur} />
                     <span className="error-message error-password">{fields.password.error}</span>
