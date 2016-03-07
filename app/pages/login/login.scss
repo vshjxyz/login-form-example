@@ -1,5 +1,6 @@
 @import "../../../node_modules/compass-mixins/lib/compass";
 @import "../../styles/settings";
+@import "../../styles/mixins";
 
 .login-wrapper {
   height: 100%;
@@ -14,5 +15,12 @@
       font-weight: 300;
       margin: 0 0 15px;
     }
+  }
+}
+
+@include mobile {
+  .login-modal {
+    width: 100%;
+    margin: 0 15px;
   }
 }

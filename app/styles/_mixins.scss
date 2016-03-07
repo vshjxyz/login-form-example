@@ -1,3 +1,5 @@
+@import './settings';
+
 @mixin modal() {
   color: #22313F;
   background: #F2F1EF;
@@ -7,4 +9,10 @@
 @mixin visible-error-message() {
   height: initial;
   padding: 5px;
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
 }
