@@ -15,7 +15,7 @@ const initialState = deepFreeze({
             isTouched: false
         }
     },
-    isValid: false,
+    isValid: true,
     isSubmitting: false,
     isSubmitted: false,
     error: null

@@ -37,6 +37,7 @@ const Login = React.createClass({
 
     render() {
         const fields = this.props.form.fields;
+        const isValid = this.props.form.isValid;
         let formError;
 
         if (this.props.form.error) {
@@ -65,7 +66,7 @@ const Login = React.createClass({
                     <span className="error-message error-password">{fields.password.error}</span>
                 </div>
 
-                <button type="button" name="login-submit" onClick={ this.submit }>Login</button>
+                <button type="button" name="login-submit" className={!isValid  ? 'error-button' : ''} onClick={ this.submit }>Login</button>
                 {formError}
             </form>
         );

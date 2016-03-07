@@ -56,6 +56,13 @@
       background: $green-1;
       @include box-shadow(none);
     }
+
+    &.error-button {
+      @include box-shadow($red-1 3px 3px 0, $red-2 6px 6px 0);
+      &:hover, &:focus {
+        background: $red-1;
+      }
+    }
   }
 
   .error-message {
