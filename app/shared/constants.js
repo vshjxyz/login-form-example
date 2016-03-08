@@ -1,5 +1,6 @@
 import keyMirror from 'keymirror';
 
+// keymirror just mirrors the key to the value, it helps to create quick enumerations
 export default {
     ActionTypes: keyMirror({
         LOGIN_VALIDATE: null,
