@@ -5,6 +5,9 @@ import { RouteErrors } from  '../app/shared/constants';
 import routes from '../app/routes';
 import globPromise from './glob-promise';
 
+// This renders the router server-side
+// It is necessary to do so if we want to handle error codes in order to return the
+// proper one for CDNs and other services that relies on http status codes.
 const routeUrl = (url) => {
     return new Promise((resolve, reject) => {
         match({
@@ -41,6 +44,9 @@ const renderRouter = (routerProps) => {
         const prerenderedPage = ReactDOMServer.renderToString(<RouterContext {...routerProps} />);
 
         if (process.env.NODE_ENV != 'development') {
+            // If we are not in development, webpack won't be running so we need to
+            // fetch the files from the dist folders and order
+
             Promise.all([
                 globPromise(process.cwd() + '/dist/*.css'),
                 globPromise(process.cwd() + '/dist/*.js')

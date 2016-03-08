@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import LoginForm from '../../components/login-form/main.jsx';
 import LoginMessage from '../../components/login-message/main.jsx';
 
-if (process.env.BROWSER) {
+if (process.env.WEBPACK_BUILD) {
     require('./login.scss');
 }
 const LoginView = React.createClass({

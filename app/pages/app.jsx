@@ -5,7 +5,7 @@ import { Link, RouteHandler } from 'react-router';
 import { Provider } from 'react-redux';
 import configureStore from '../shared/store';
 
-if (process.env.BROWSER) {
+if (process.env.WEBPACK_BUILD) {
     require('../styles/app.scss');
 }
 

@@ -24,6 +24,8 @@ const initialState = deepFreeze({
 export default function loginForm(state = initialState, action) {
     switch(action.type) {
         case ActionTypes.LOGIN_CHANGE:
+            // This action tracks any change on inputs and updates the state to reflect
+            // the proper values
             return {
                 ...state,
                 fields: {
@@ -39,6 +41,7 @@ export default function loginForm(state = initialState, action) {
             let isValid = true;
             const newFields = Object.keys(state.fields)
                 .map((fieldName) => {
+                    // Mapping the errors from the action to the state
                     const error = action.errors[fieldName] ? action.errors[fieldName] : null;
 
                     // Tagging the form as invalid if error is not null

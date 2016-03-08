@@ -6,6 +6,7 @@ import { Router } from 'react-router';
 import { browserHistory } from 'react-router'
 
 if (module.hot) {
+    // Enables webpack hot reload
     module.hot.accept();
 }
 

@@ -35,6 +35,7 @@ app.get('*',function(req,res){
             res.render('index', renderedRouter);
         })
         .catch((renderedRouter) => {
+            // Returning the appropiate http status code based on what react-router says
             switch (renderedRouter.error) {
                 case RouteErrors.ROUTING:
                     res.status(500);

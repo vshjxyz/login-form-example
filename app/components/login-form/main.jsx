@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import LoginActions from '../../actions/login-actions';
 
-if (process.env.BROWSER) {
+if (process.env.WEBPACK_BUILD) {
     require('./login-form.scss');
 }
 
@@ -79,6 +79,7 @@ const Login = React.createClass({
     }
 });
 
+// This function from react-redux binds the state and the actions to this.props for the Login component
 export default connect(
     (state) => ({
         form: state.loginForm

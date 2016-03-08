@@ -9,7 +9,7 @@
     "start": "NODE_PATH=$NODE_PATH:./app node ./server/index.js",
     "test": "./node_modules/.bin/nightwatch"
   },
-  "author": "",
+  "author": "Luca Del Bianco",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.5.1",

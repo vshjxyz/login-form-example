@@ -12,6 +12,7 @@ const LoginActions = {
     },
 
     validate: (fields, force) => {
+        // This needs to be a simple function that quicky validates synchronously the fields provided
         let errors = {};
         if (fields.email.isTouched || force) {
             if (fields.email.value.length < 8) {
@@ -33,6 +34,7 @@ const LoginActions = {
 
     submit() {
         return (dispatch, getState) => {
+            // We force a validation of all the fields before submitting the form
             dispatch(LoginActions.validate(getState().loginForm.fields, true));
 
             if (getState().loginForm.isValid) {

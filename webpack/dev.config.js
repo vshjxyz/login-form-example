@@ -88,7 +88,7 @@ export default {
             // These variables are visible only through the chain of files defined on the entrypoint
             new webpack.DefinePlugin({
                 'process.env': {
-                    BROWSER: JSON.stringify(true),
+                    WEBPACK_BUILD: JSON.stringify(true),
                     NODE_ENV: JSON.stringify('development')
                 }
             }),
