@@ -24,10 +24,6 @@ const Login = React.createClass({
     onChange(event) {
         const changedField = event.target.name;
         const changedFieldValue = event.target.value;
-        const mappedField = this.props.form.fields[changedField];
-        if (mappedField && mappedField.isTouched) {
-            this.validate();
-        }
         this.props.fieldChange(changedField, changedFieldValue);
     },
 
@@ -40,9 +36,7 @@ const Login = React.createClass({
     },
 
     submit() {
-        if (this.props.form.isValid) {
-            this.props.submit();
-        }
+        this.props.submit();
     },
 
     render() {
